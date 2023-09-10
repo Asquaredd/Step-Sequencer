@@ -1,0 +1,219 @@
+*{
+  font-family: "Rubik", sans-serif;
+}
+
+
+input[type="range"]{
+  display: flex;
+  -webkit-appearance:none;
+  width:200px;
+  height:20px;
+  background: linear-gradient(to right, #4d4e57 0%, #5a71f1 100%);
+  background-size:150px 10px;
+  background-position:center;
+  background-repeat:no-repeat;
+  overflow:hidden;
+  outline: none;
+  transform: scale();
+}
+
+input[type="range"]:first-of-type{
+  margin-top:30px;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:20px;
+  height:20px;
+  background:#1900ff;
+  position:relative;
+  z-index:3;
+  box-shadow:0 0 5px 0 rgba(0,0,0,0.3);
+}
+
+input[type="range"]::-webkit-slider-thumb:after{
+  content:" ";
+  width:160px;
+  height:10px;
+  position:absolute;
+  z-index:1;
+  right:20px;
+  top:5px;
+  background: #ff5b32;
+  background: linear-gradient(to right, #f088fc 1%, #AC6CFF 70%);
+}
+
+
+body {
+  width: 99%;
+  height: 99vh;
+  background: #1d1d24;
+  background-image: url('./oooscillate.svg');
+  background-size: cover;
+  
+  }
+  
+  .flex {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .sequencer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 1em;
+    background: #28282c;
+    border-radius: 4px;
+    transform: translate(-50%, -50%) scale(1.25); /* Adjust the scale factor as needed */
+}
+
+
+  
+  .notes {
+    list-style-type: none;
+    position: absolute;
+    left: -100px;
+    top: 75px;
+    text-align: right;
+    color: white;
+    line-height: 60px;
+    opacity: 0.3;
+  }
+  
+  .buttons {
+    display: flex;
+    padding: 0.35em 0 0.5em;
+  }
+  .buttons button,
+  .buttons select {
+    margin: 5px;
+    outline: none;
+    background: #36363c;
+    color: white;
+    padding: 1em;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  .buttons button.active,
+  .buttons select.active {
+    color: #0087ff;
+    border: 2px solid #0087ff;
+  }
+  .buttons .select-wrapper {
+    position: relative;
+  }
+  .buttons .select-wrapper span {
+    position: absolute;
+    color: white;
+    top: -10px;
+    left: 8px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    opacity: 0.3;
+  }
+  .buttons select {
+    position: relative;
+    height: 42px;
+    min-width: 50px;
+  }
+  
+  .pads-column {
+    box-sizing: border-radius;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+  }
+  
+  .pad {
+    background: #36363c;
+    border-radius: 4px;
+    cursor: pointer;
+    width: calc(600px / 10 - 10px);
+    height: calc(600px / 10 - 10px);
+    margin: 5px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    transition: #42424a 100ms ease;
+  }
+  
+  .pads-column.step-play .pad {
+    background: #787885;
+  }
+  
+  .pads-column.step-play .pad-pressed {
+    background: #56f584;
+  }
+  
+  .pads-column.step-play .pad-pressed:hover {
+    background: #56f584;
+  }
+  
+  .pads-column .pad:hover {
+    background: #787885;
+  }
+  
+  .pads-column .pads-player {
+    background: #787885;
+  }
+  
+  .pads-column .pad-pressed {
+    background: #56a0f5;
+    box-shadow: 0 0 12px 0 #56a0f5;
+  }
+  
+  .pads-column .pad-pressed:hover {
+    background: #f2ffe2;
+    box-shadow: 0 0 12px 0 rgba(239, 255, 220, 0.7);
+  }
+  
+  /* new style for buttons and the options */
+  .navigation-buttons {
+    margin: 5px;
+    outline: none;
+    background: #36364c;
+    color: white;
+    padding: 1em;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  
+  .navigation-buttons:hover,
+  select:hover {
+    opacity: 0.9;
+    outline: none;
+    border-color: #56a0f5;
+    box-shadow: 0 0 10px #56a0f5;
+    color: #56a0f5;
+  }
+  
+  .navigation-buttons:active {
+    color: white;
+    border-color: white;
+    box-shadow: 0 0 10px white;
+  }
+  
+  @-webkit-keyframes colorize {
+    from {
+      background: #55aa00;
+    }
+    to {
+      background: #55ff00;
+    }
+  }
+  
+  @keyframes colorize {
+    from {
+      background: #55aa00;
+    }
+    to {
+      background: #55ff00;
+    }
+  }
